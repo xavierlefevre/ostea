@@ -2,40 +2,64 @@
 
 //call to external libraries
 var express     = require('express'),
-    router      = express.Router();
+    router      = express.Router(),
+    passport    = require("passport"),
+    User        = require("../models/user"),
+    New         = require("../models/news");
 
 //---------------
 //    ROUTES
 //---------------
 
-//landing route
+//GET - Landing route
 router.get('/', function(req, res){
-    res.render("landing", {url: ''});
+    // Get all news from DB
+    New.find({}, function(err, allNews){
+       if(err){
+           console.log(err);
+       } else {
+          res.render("landing",{news:allNews, url:"landing"});
+       }
+    });
 });
 
-//osteo route
+//GET - Osteo route
 router.get('/osteopathie', function(req, res){
     res.render("osteo", {url: 'osteopathie'});
 });
 
-//service route
+//GET - service route
 router.get('/service', function(req, res){
     res.render("service", {url: 'service'});
 });
 
-//about route
+//GET - about route
 router.get('/apropos', function(req, res){
     res.render("about", {url: 'apropos'});
 });
 
-//contact route
+//GET - contact route
 router.get('/contact', function(req, res){
     res.render("contact", {url: 'contact'});
 });
 
-//login route
+//GET - Get Login Form
 router.get('/login', function(req, res){
     res.render("login", {url: 'login'});
+});
+
+//POST - Login Authenticate
+router.post("/login", passport.authenticate("local", 
+    {
+        successRedirect: "/",
+        failureRedirect: "/login"
+    }), function(req, res){
+});
+
+//GET - Logout
+router.get("/logout", function(req, res){
+   req.logout();
+   res.redirect("/");
 });
 
 //export routes

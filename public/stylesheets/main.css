@@ -1,7 +1,24 @@
+/* General styling */
+
+html {
+    height:100%;
+}
+
+body {
+    margin:0;
+    padding:0;
+    min-height:100%;
+}
+
+.ui.container {
+	padding-bottom: 100px;
+}
+
+/* Logo styling */
 
 #top_logo {
     text-align:center;
-    margin-top:25px;
+    padding-top:25px;
     margin-bottom:20px;
 }
 
@@ -10,13 +27,26 @@
     height:100px;
 }
 
+.st0{
+    fill:url(#SVGID_1_);
+}
+
+.st1{
+    fill:#6D6E70;
+}
+
+@media only screen and (max-width: 767px) {
+        .ostea_logo {
+        margin-right:0.6em;
+        height:60px;
+    }
+}
+
+/* Footer styling */
+
 #credit {
     text-align:center;
     line-height:40px;
-}
-
-.ui .grid {
-    margin-top:40px;
 }
 
 #footer {
@@ -30,14 +60,10 @@
     left:0;
 }
 
-html body {
-    margin:0;
-    padding:0;
-    height:100%;
-}
+/* Main content styling (content_wrapper for sticky footer)*/
 
-.ui.container {
-	padding-bottom: 80px;
+.ui.grid {
+    margin-top:40px;
 }
 
 #content_wrapper {
@@ -45,26 +71,34 @@ html body {
     position:relative;
 }
 
-#tableau {
+.contain_button {
+    text-align:center;
+}
+
+#delete-form {
+    display:inline;
+}
+
+.divider_container {
     position: relative;
 }
 
-.login_form_container {
+#global_form_container {
     text-align: center;
+    padding:3em 0 3em 0;
 }
 
-.login_form {
-
+.validate_button {
     margin-top:10px !important;
 }
 
-#standalone_form {
-    margin-top:10em;
-    max-width:250px;
-    margin-right:auto !important;
-    margin-left:auto !important;
+.back_button {
+    margin-top:2em !important;
 }
 
-#back_button {
-    margin-top:2em;
+#standalone_form {
+    max-width:400px;
+    margin-right:auto !important;
+    margin-left:auto !important;
+    padding:0 5px 0 5px;
 }

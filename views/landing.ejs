@@ -1,8 +1,9 @@
 <% include partials/header %>
+<% include partials/menu %>
 
-<div class="ui grid">
+<div class="ui stackable grid">
     <div class="four wide column">
-        <img class="ui bordered image" src="http://bournemouthclinic.co.uk/saxon/wp-content/uploads/2010/10/small_10519738.jpg">
+        <img class="ui medium centered bordered image" src="http://bournemouthclinic.co.uk/saxon/wp-content/uploads/2010/10/small_10519738.jpg">
     </div>
     <div class="twelve wide column">
         <div class="ui message">
@@ -18,28 +19,49 @@
             Fil d'Actualité
         </div>
         
-        <div class="ui message">
-            <div class="header">
-                Grand Nouveauté en Médecine
+        <% if(currentUser){ %>
+            <div class="contain_button">
+                <a href="/new">
+                    <button class="ui positive button">Ajouter un article</button>
+                </a>
             </div>
-            <p>Okay Futur site d'Ostea blablabla blabla blablabiblateblabla blalbl a  blablabla bla  blablabla bla blablabla bla blablabla bla blablabla bla blablabla bla</p>
-        </div>
-        
-        <div class="ui message">
-            <div class="header">
-                Késako?
+        <% } %>
+            
+        <% news.reverse().forEach(function(newz){ %>
+            <div class="ui message">
+                <div class="ui stackable grid">
+                    <div class="four wide column">
+                        <img class="ui centered medium bordered image" src=" <%= newz.imagedest %> ">
+                    </div>
+                    <div class="twelve wide column">
+                        <div class="header">
+                            <%= newz.title %>
+                        </div>
+                        <p> <%= newz.content %> </p>
+                        <a href=" <%= newz.link %> " target="_blank">
+                            <button class="mini ui button">
+                                Lire plus...
+                            </button>
+                        </a>
+                        <% if(currentUser){ %>
+                            <a href="/<%= newz._id %>/edit">
+                                <button class="mini ui primary button">
+                                    Editer
+                                </button>
+                            </a>
+                            <form id="delete-form" action="/<%= newz._id %>?_method=DELETE" method="POST">
+                                <button class="mini ui negative button">
+                                    Supprimer
+                                </button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
             </div>
-            <p>Okay Futur site d'Ostea blablabla blabla blablabiblateblabla blalbl a  blablabla bla  blablabla bla blablabla bla blablabla bla blablabla bla blablabla bla</p>
-        </div>
-        
-        <div class="ui message">
-            <div class="header">
-                Prout
-            </div>
-            <p>Okay Futur site d'Ostea blablabla blabla blablabiblateblabla blalbl a  blablabla bla  blablabla bla blablabla bla blablabla bla blablabla bla blablabla bla</p>
-        </div>
+        <% }); %>
         
     </div>
 </div>
 
 <% include partials/footer %>
+<% include partials/end %>
