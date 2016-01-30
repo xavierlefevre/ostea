@@ -62,8 +62,8 @@ body {
 
 /* Main content styling (content_wrapper for sticky footer)*/
 
-.ui.grid {
-    margin-top:40px;
+#main_content {
+    margin-top:50px;
 }
 
 #content_wrapper {
@@ -101,4 +101,12 @@ body {
     margin-right:auto !important;
     margin-left:auto !important;
     padding:0 5px 0 5px;
+}
+
+.split_elements {
+    margin-top:30px !important;
+}
+
+.nostyle {
+    list-style-type: none;
 }
