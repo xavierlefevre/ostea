@@ -61,6 +61,6 @@ app.use("/", indexRoutes);
 app.use("/", newsRoutes);
 
 //server launch
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(3000, function(){
     console.log('Serveur en route!');
 });
