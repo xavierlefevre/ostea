@@ -18,12 +18,12 @@ var indexRoutes = require('./routes/index'),
 
 
 //view engine (ejs) & public directory
-mongoose.connect("mongodb://localhost/ostea_1");
+mongoose.connect(process.env.DATABASEURL);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
-seedDB(); //seed the database
+//seedDB(); //seed the database
 
 //config of Passport
 app.use(require("express-session")({
@@ -61,6 +61,6 @@ app.use("/", indexRoutes);
 app.use("/", newsRoutes);
 
 //server launch
-app.listen(3000, function(){
+app.listen(process.env.PORT, function(){
     console.log('Serveur en route!');
 });
