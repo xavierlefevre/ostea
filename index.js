@@ -18,7 +18,7 @@ var indexRoutes = require('./routes/index'),
 
 
 //view engine (ejs) & public directory
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect("mongodb://localhost/ostea_1");
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));

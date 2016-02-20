@@ -37,7 +37,6 @@ body {
 
 @media only screen and (max-width: 767px) {
         .ostea_logo {
-        margin-right:0.6em;
         height:60px;
     }
 }
@@ -66,13 +65,83 @@ body {
     margin-top:50px;
 }
 
+.presentation{
+    background-image: url(http://www.ostea-sante.com/images/accueil.png) !important;
+    background-size:     cover !important;
+    background-repeat:   no-repeat !important;
+    background-position: center center !important;
+    font-size: 1.1em !important;
+}
+
+@media only screen and (max-width: 767px) {
+    .blurry{
+        margin: 10px !important;
+    }
+}
+
+.blurry{
+    background: rgba(110,192,209,0.65);
+    color: #EBEFEA !important;
+    margin: 50px 20px 50px 20px !important;
+    padding: 20px;
+    text-align: center;
+}
+
+.spliter{
+    margin-bottom: 20px !important;
+    margin-top: 20px !important;
+    color: #5EBBC2 !important;
+}
+
+.header{
+    margin-bottom: 10px !important;
+}
+
+.conteuner{
+    text-align: center;
+}
+
+.nomargtop{
+    margin-top:0px !important;
+}
+
+.nopaddingtop{
+    padding-top:0px !important;
+}
+
+.paddingupdown{
+    padding-top:10px !important;
+    padding-bottom:30px !important;
+}
+
+.ui.horizontal.divider.spliter.splitspecial:after, .ui.horizontal.divider.spliter.splitspecial:before{
+    width:14% !important;
+}
+
+.ui.horizontal.divider.spliter.splitspecial{
+    white-space: inherit !important;
+}
+
+.equalpaddingupdown{
+    padding-top:30px !important;
+    padding-bottom:30px !important; 
+}
+
+.nopoint{
+    list-style-type: circle !important; 
+}
+
 #content_wrapper {
     min-height:100%;
     position:relative;
 }
 
-.contain_button {
+.textaligner {
     text-align:center;
+}
+
+.active {
+    color: #5EBBC2 !important
 }
 
 #delete-form {

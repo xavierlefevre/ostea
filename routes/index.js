@@ -29,8 +29,8 @@ router.get('/osteopathie', function(req, res){
 });
 
 //GET - service route
-router.get('/service', function(req, res){
-    res.render("service", {url: 'service'});
+router.get('/prestations', function(req, res){
+    res.render("service", {url: 'prestations'});
 });
 
 //GET - about route
@@ -39,8 +39,8 @@ router.get('/apropos', function(req, res){
 });
 
 //GET - contact route
-router.get('/contact', function(req, res){
-    res.render("contact", {url: 'contact'});
+router.get('/equipe', function(req, res){
+    res.render("contact", {url: 'equipe'});
 });
 
 //GET - Get Login Form

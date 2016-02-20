@@ -2,21 +2,36 @@
 <% include partials/menu %>
 
 <div class="ui stackable grid">
-    <div class="four wide column">
-        <img class="ui medium centered bordered image" src="http://bournemouthclinic.co.uk/saxon/wp-content/uploads/2010/10/small_10519738.jpg">
-    </div>
-    <div class="twelve wide column">
-        <div class="ui message">
-            <div class="header">
-                Bienvenue
+    <div class="ten wide column">
+        <div class="ui segment presentation">
+            <p class="blurry">
+                Ostéa Santé fournie des prestations de santé de qualité directement au sein de votre entreprise. TMS, stress, nous prenons en charge vos collaborateurs de manière efficace sans gestion administrative de la part de votre entreprise.
+            </p>
+        </div>
+        <div class="ui message paddingupdown">
+            <div class="ui horizontal divider spliter">
+                Notre Entreprise
             </div>
-            <p><!>Site en Construction<!><br><br>Futur site d'Ostea</p>
+            <p class="conteuner">
+                Ostéa Santé est une société fondée par Emmanuel Soly, ostéopathe à Versailles, diplômé de l’Institut Dauphine d’Ostéopathie, Paris VI.
+                <br>Nous sommes un regroupement d'ostéopathes intervenant en Ile-de-France directement au sein des entreprises. 
+            </p>
+            <div class="ui horizontal divider spliter">
+                Notre Objectif
+            </div>
+            <p class="conteuner">Prévention, traitement, suivi: notre équipe d'ostéopathes accompagne vos collaborateurs pour leur bien-être. <br> Nos prestations favorisent un environnement de travail plus sain au bénéfice de la productivité de votre entreprise.</p>
+            <div class="ui horizontal divider spliter">
+                Nos Ostéopathes
+            </div>
+            <p class="conteuner">
+                Tous nos ostéopathes sont titulaires du diplôme national d’ostéopathie délivré au bout d’une formation dispensées en 5 ans ; issues d’écoles agrées par le ministère de la santé et suivant une formation reconnue par l’OMS afin de garantir aux entreprises des intervenants de qualité.
+            </p>
         </div>
     </div>
-    <div class="sixteen wide column">
+    <div class="six wide column">
         
-        <div class="ui horizontal divider">
-            Fil d'Actualité
+        <div class="ui horizontal divider nomargtop">
+            Actualité
         </div>
         
         <% if(currentUser){ %>
@@ -27,39 +42,39 @@
             </div>
         <% } %>
             
-        <% news.reverse().forEach(function(newz){ %>
-            <div class="ui message">
-                <div class="ui stackable grid">
-                    <div class="four wide column">
-                        <img class="ui centered medium bordered image" src=" <%= newz.imagedest %> ">
+        <% 
+            news.reverse() ;
+            for(i=0;i<news.length && i<5;i++){
+        %>
+            <div class="ui segment mainblock">
+                <a href=" <%= news[i].link %> " target="_blank">
+                    <div class="ui center aligned header small">
+                        <%= news[i].title %>
                     </div>
-                    <div class="twelve wide column">
-                        <div class="header">
-                            <%= newz.title %>
-                        </div>
-                        <p> <%= newz.content %> </p>
-                        <a href=" <%= newz.link %> " target="_blank">
-                            <button class="mini ui button">
-                                Lire plus...
-                            </button>
-                        </a>
-                        <% if(currentUser){ %>
-                            <a href="/<%= newz._id %>/edit">
-                                <button class="mini ui primary button">
-                                    Editer
-                                </button>
-                            </a>
-                            <form id="delete-form" action="/<%= newz._id %>?_method=DELETE" method="POST">
-                                <button class="mini ui negative button">
-                                    Supprimer
-                                </button>
-                            </form>
-                        <% } %>
-                    </div>
-                </div>
+                    
+                   <!-- <button class="mini ui button">
+                        Lire plus...
+                    </button> -->
+                
+                <% if(news[i].imagedest){ %>
+                    <img class="ui centered medium bordered image" src="<%= news[i].imagedest %>">
+                <% } %>
+                </a>
+                <!-- <p> <%= news[i].content %> </p> -->
+                <% if(currentUser){ %>
+                    <a href="/<%= news[i]._id %>/edit">
+                        <button class="mini ui primary button">
+                            Editer
+                        </button>
+                    </a>
+                    <form id="delete-form" action="/<%= news[i]._id %>?_method=DELETE" method="POST">
+                        <button class="mini ui negative button">
+                            Supprimer
+                        </button>
+                    </form>
+                <% } %>
             </div>
-        <% }); %>
-        
+        <% } %>
     </div>
 </div>
 
