@@ -14,7 +14,7 @@ var express     = require('express'),
 
 //NEW - Get News Form
 router.get("/new", middleware.isLoggedIn, function(req, res){
-   res.render("news/new"); 
+   res.render("news/new", {url: 'Nouvelle Actualite'}); 
 });
 
 //NEW - Post News
@@ -39,7 +39,7 @@ router.get("/:id/edit", middleware.isLoggedIn, function(req, res){
            console.log(err);
            res.redirect("/");
         } else {
-            res.render("news/edit", {newz: foundNews});
+            res.render("news/edit", {newz: foundNews, url: 'Editer Actualite'});
         }
     });
 });

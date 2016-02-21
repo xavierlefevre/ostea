@@ -18,34 +18,29 @@ router.get('/', function(req, res){
        if(err){
            console.log(err);
        } else {
-          res.render("landing",{news:allNews, url:"landing"});
+          res.render("landing",{news:allNews, url:"Accueil"});
        }
     });
 });
 
 //GET - Osteo route
 router.get('/osteopathie', function(req, res){
-    res.render("osteo", {url: 'osteopathie'});
+    res.render("osteo", {url: 'Osteopathie'});
 });
 
 //GET - service route
 router.get('/prestations', function(req, res){
-    res.render("service", {url: 'prestations'});
-});
-
-//GET - about route
-router.get('/apropos', function(req, res){
-    res.render("about", {url: 'apropos'});
+    res.render("service", {url: 'Prestations'});
 });
 
 //GET - contact route
 router.get('/equipe', function(req, res){
-    res.render("contact", {url: 'equipe'});
+    res.render("contact", {url: 'Equipe'});
 });
 
 //GET - Get Login Form
 router.get('/login', function(req, res){
-    res.render("login", {url: 'login'});
+    res.render("login", {url: 'Login'});
 });
 
 //POST - Login Authenticate

@@ -56,6 +56,9 @@ app.use(function(req, res, next){
    next();
 });
 
+//send variable everywhere
+app.locals.gtmId = process.env.GTM_ID;
+
 //Call routes (+shortening if necessary)
 app.use("/", indexRoutes);
 app.use("/", newsRoutes);
