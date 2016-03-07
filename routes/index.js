@@ -34,8 +34,8 @@ router.get('/prestations', function(req, res){
 });
 
 //GET - contact route
-router.get('/equipe', function(req, res){
-    res.render("contact", {url: 'Equipe'});
+router.get('/contact', function(req, res){
+    res.render("contact", {url: 'Contact'});
 });
 
 //GET - Get Login Form
